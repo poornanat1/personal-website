@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Outfit", sans-serif;
+
+  --color-canvas: #ece6dc;
+  --color-ink: #29232a;
+  --color-body: #403b3e;
+  --color-copy: #4f494b;
+  --color-muted: #756b6b;
+  --color-border: #c8bcc0;
+  --color-primary: #7b465e;
+  --color-highlight: #b76e88;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    background: var(--color-canvas);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 64rem) and (max-height: 46.875rem) {
+  .profile-panel {
+    position: static;
+    min-height: auto;
+  }
+
+  .profile-location {
+    margin-top: 2rem;
+  }
+}
