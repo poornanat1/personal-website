@@ -42,13 +42,12 @@ export function App() {
                 Machine Learning Engineer
               </p>
               <p className="mt-4 max-w-[60ch] text-[14px] font-medium leading-[1.6] text-copy lg:max-w-[29ch]">
-                I build AI systems in regulated environments where accuracy and clarity
-                matter. My work has taken me from public-health operations during the
-                pandemic to Air Force workflows and legal search platforms, and I’ve
-                seen how technical decisions shape real outcomes for real people. I
-                focus on making those decisions understandable, defensible, and
-                reliable. What keeps me in this work is helping institutions use
-                technology in ways that feel responsible and human.
+                Over the past seven years, I’ve built data and AI systems for
+                public-health operations, government workflows, and legal search. That
+                work has shown me how much technical decisions can affect the people
+                who rely on these systems. I care about helping institutions use
+                technology responsibly, and I bring that perspective to every project I
+                take on.
               </p>
             </div>
 
