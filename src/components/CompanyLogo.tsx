@@ -24,7 +24,7 @@ export function CompanyLogo({ company }: Pick<Experience, "company">) {
       >
         <img src={logo.src} alt={`${logo.alt} logo`} className="size-full object-contain" />
       </div>
-      <span className="min-w-0 break-words text-[0.68rem] font-extrabold uppercase tracking-[0.11em] text-muted">
+      <span className="font-label min-w-0 break-words text-[0.62rem] font-semibold uppercase tracking-[0.09em] text-muted">
         {logo.alt}
       </span>
     </div>

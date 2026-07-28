@@ -29,16 +29,16 @@ export function App() {
             </div>
 
             <div className="mt-6 min-w-0 md:mt-0 lg:mt-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-primary">
+              <p className="font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
                 Profile / Selected Work
               </p>
-              <h1 className="mt-3 break-words font-display text-[clamp(36px,11vw,49px)] font-black uppercase leading-[0.92] tracking-[-0.045em] md:text-[clamp(40px,6vw,49px)] lg:text-[clamp(38px,3.7vw,49px)]">
+              <h1 className="mt-3 break-words font-display text-[clamp(43px,12vw,59px)] font-bold leading-[0.86] tracking-[-0.055em] md:text-[clamp(48px,7vw,59px)] lg:text-[clamp(45px,4.2vw,59px)]">
                 <span className="block text-ink">Poorna</span>
-                <span className="block whitespace-nowrap text-[0.88em] text-highlight">
+                <span className="block whitespace-nowrap text-highlight">
                   Natarajan
                 </span>
               </h1>
-              <p className="mt-4 text-[14px] font-extrabold uppercase text-primary">
+              <p className="font-label mt-5 text-[11px] font-semibold uppercase tracking-[0.08em] text-primary">
                 Machine Learning Engineer
               </p>
               <p className="mt-4 max-w-[60ch] text-[14px] font-medium leading-[1.6] text-copy lg:max-w-[29ch]">
@@ -89,7 +89,7 @@ export function App() {
                     />
                     <div className="min-w-0">
                       <p
-                        className={`text-[12px] font-semibold tracking-[0.02em] ${
+                        className={`font-label text-[11px] font-medium tracking-[0.01em] ${
                           experience.current ? "text-primary" : "text-muted"
                         }`}
                       >
@@ -124,14 +124,14 @@ export function App() {
                         />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-[12px] font-bold leading-4 tracking-[0.07em] text-muted">
+                        <p className="font-label text-[10px] font-semibold uppercase leading-4 tracking-[0.06em] text-muted">
                           GEORGIA INSTITUTE OF TECHNOLOGY
                         </p>
                         <h3 className="mt-2 text-[15px] font-bold leading-5 text-ink">
                           M.S. in Computer Science
                         </h3>
                         <div className="mt-4 border-t border-border pt-3">
-                          <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-primary">
+                          <p className="font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-primary">
                             Select coursework
                           </p>
                           <div className="mt-2 grid grid-cols-1 gap-y-1 text-[14px] font-medium leading-7 text-copy sm:grid-cols-2 sm:gap-x-7 sm:gap-y-0 lg:max-w-2xl xl:max-w-none">
@@ -168,7 +168,7 @@ export function App() {
                       />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[12px] font-bold leading-4 tracking-[0.07em] text-muted">
+                      <p className="font-label text-[10px] font-semibold uppercase leading-4 tracking-[0.06em] text-muted">
                         UNIVERSITY OF MARYLAND
                       </p>
                       <h3 className="mt-2 text-[15px] font-bold leading-5 text-ink">
@@ -188,10 +188,10 @@ export function App() {
                       className="grid min-w-0 gap-3 py-4 sm:grid-cols-[145px_minmax(0,1fr)] sm:gap-5"
                     >
                       <div className="flex items-baseline gap-2">
-                        <span className="text-[11px] font-bold text-highlight">
+                        <span className="font-label text-[10px] font-semibold text-highlight">
                           0{index + 1}
                         </span>
-                        <h3 className="text-[11px] font-bold uppercase leading-4 tracking-[0.08em] text-primary">
+                        <h3 className="font-label text-[10px] font-semibold uppercase leading-4 tracking-[0.08em] text-primary">
                           {group.title}
                         </h3>
                       </div>
