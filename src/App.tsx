@@ -39,7 +39,7 @@ export function App() {
                 </span>
               </h1>
               <p className="font-label mt-5 text-[11px] font-semibold uppercase tracking-[0.08em] text-primary">
-                Machine Learning Engineer
+                Senior AI Software Engineer
               </p>
               <p className="mt-4 max-w-[60ch] text-[14px] font-medium leading-[1.6] text-copy lg:max-w-[29ch]">
                 Over the past seven years, I’ve built data and AI systems for

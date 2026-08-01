@@ -15,7 +15,7 @@ export const experiences: Experience[] = [
   {
     date: "2025 — NOW",
     company: "Latham & Watkins",
-    title: "Senior Machine Learning Engineer",
+    title: "Senior AI Software Engineer",
     current: true,
     description:
       "Developing production AI platforms at one of the world's largest law firms.",
@@ -30,7 +30,7 @@ export const experiences: Experience[] = [
   {
     date: "2022 — 2024",
     company: "SMX",
-    title: "Machine Learning Engineer",
+    title: "Senior AI Software Engineer",
     description:
       "Built distributed data pipelines and extraction systems supporting active-learning models in classified environments.",
   },
