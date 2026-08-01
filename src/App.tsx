@@ -52,10 +52,10 @@ export function App() {
             </div>
 
             <div className="mt-5 flex gap-3 md:self-end lg:self-auto">
-              <SocialLink href="https://www.linkedin.com" label="Poorna Natarajan on LinkedIn">
+              <SocialLink href="https://www.linkedin.com/in/poorna-natarajan/" label="Poorna Natarajan on LinkedIn">
                 <Linkedin size={16} strokeWidth={1.9} className="fill-current" />
               </SocialLink>
-              <SocialLink href="https://github.com" label="Poorna Natarajan on GitHub">
+              <SocialLink href="https://github.com/poornanat1" label="Poorna Natarajan on GitHub">
                 <Github size={16} strokeWidth={1.9} className="fill-current" />
               </SocialLink>
               <SocialLink href="mailto:pnat614@gmail.com" label="Email Poorna Natarajan">
