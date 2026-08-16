@@ -14,7 +14,7 @@ const logos: Record<
   Deloitte: { src: deloitteLogo, alt: "Deloitte" },
 };
 
-export function CompanyLogo({ company }: Pick<Experience, "company">) {
+export function CompanyLogo({ company, showLabel = true }: Pick<Experience, "company"> & { showLabel?: boolean }) {
   const logo = logos[company];
 
   return (
@@ -24,9 +24,11 @@ export function CompanyLogo({ company }: Pick<Experience, "company">) {
       >
         <img src={logo.src} alt={`${logo.alt} logo`} className="size-full object-contain" />
       </div>
-      <span className="font-label min-w-0 break-words text-[0.62rem] font-semibold uppercase tracking-[0.09em] text-muted">
-        {logo.alt}
-      </span>
+      {showLabel && (
+        <span className="min-w-0 break-words text-[0.68rem] font-semibold text-muted">
+          {logo.alt}
+        </span>
+      )}
     </div>
   );
 }

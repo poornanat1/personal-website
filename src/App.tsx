@@ -1,220 +1,165 @@
-import georgiaTechLogo from "@/assets/georgia-tech.png";
-import marylandLogo from "@/assets/maryland.png";
+import carenavScreenshot from "@/assets/carenav.png";
+import auditionWithMeScreenshot from "@/assets/audition-with-me.png";
 import portrait from "@/assets/portrait.png";
 import { CompanyLogo } from "@/components/CompanyLogo";
-import { SectionHeader } from "@/components/SectionHeader";
-import { SocialLink } from "@/components/SocialLink";
-import { experiences, skillGroups } from "@/data/portfolio";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { experiences } from "@/data/portfolio";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Github, Linkedin } from "lucide-react";
+import { useState, type ReactNode } from "react";
+
+const projects = [
+  {
+    id: "carenav",
+    name: "CareNav",
+    eyebrow: "Agentic health-benefits navigator · Product / ML / Safety",
+    year: "2026",
+    href: "https://carenav-frontend-production.up.railway.app/",
+    github: "https://github.com/poornanat1/carenav",
+    image: carenavScreenshot,
+    imageAlt: "CareNav interface showing a grounded health-benefits conversation and synthetic member profile",
+    summary: "A conversational assistant for coverage, claims, providers, and medication questions—grounded in cited sources.",
+    contribution: "I designed and built the member experience, typed orchestration, hybrid retrieval, model tiering, evaluation gates, deployment, and telemetry. Unsafe or unsupported questions escalate instead of producing a guess.",
+    tags: ["Python", "FastAPI", "React", "Postgres", "pgvector", "Mistral"],
+    liveLabel: "Live demo",
+  },
+  {
+    id: "audition-with-me",
+    name: "Audition With Me",
+    eyebrow: "AI rehearsal partner for actors · Document AI / Voice / Product",
+    year: "2026",
+    href: "https://auditionwithme.vercel.app/",
+    github: "https://github.com/cranberrymuffin/auditionwithme",
+    image: auditionWithMeScreenshot,
+    imageAlt: "Audition With Me landing page with a Hollywood hillside backdrop and rehearsal call to action",
+    summary: "A browser-based rehearsal partner that turns typed or scanned audition sides into structured, expressive scene playback.",
+    contribution: "I built the document-intelligence and voice pipeline: deterministic PDF segmentation backed by model classification, chunked vision parsing for scans, character canonicalization and model-assisted voice casting, plus an AI director that assigns bounded delivery tags before speech synthesis.",
+    tags: ["Claude", "Vision", "ElevenLabs", "PDF.js", "TypeScript", "React"],
+    liveLabel: "Live site",
+  },
+] as const;
+
+function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 text-[13px] font-semibold underline decoration-ink/25 underline-offset-4 transition-colors hover:text-accent">
+      {children}<ArrowUpRight size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+    </a>
+  );
+}
 
 export function App() {
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const activeProject = projects[activeProjectIndex];
+  const nextProjectIndex = (activeProjectIndex + 1) % projects.length;
+
+  const showProject = (index: number) => {
+    setActiveProjectIndex((index + projects.length) % projects.length);
+  };
+
   return (
-    <main className="min-h-dvh overflow-x-clip bg-canvas text-ink selection:bg-primary selection:text-white">
-      <div className="mx-auto grid min-h-dvh max-w-[1520px] grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[340px_minmax(0,1fr)] 2xl:grid-cols-[360px_minmax(0,1fr)]">
-        <aside
-          id="profile"
-          className="relative px-5 py-8 sm:px-8 sm:py-10 md:px-12 lg:px-8 lg:py-10 lg:after:absolute lg:after:inset-y-10 lg:after:right-0 lg:after:w-px lg:after:bg-border/75 xl:px-10 xl:py-12 xl:after:inset-y-12 2xl:px-12"
-        >
-          <div className="profile-panel md:grid md:grid-cols-[200px_minmax(0,1fr)] md:gap-x-10 lg:sticky lg:top-10 lg:flex lg:min-h-[calc(100dvh-5rem)] lg:flex-col xl:top-12 xl:min-h-[calc(100dvh-6rem)]">
-            <div className="relative w-full max-w-[180px] self-start overflow-hidden rounded-lg bg-border sm:max-w-[200px]">
-              <img
-                src={portrait}
-                alt="Portrait of Poorna Natarajan"
-                className="aspect-square w-full object-cover saturate-[1.12] contrast-[1.03]"
-              />
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-canvas/[0.03]"
-              />
-            </div>
+    <main className="min-h-dvh bg-shell p-3 text-ink selection:bg-accent selection:text-white sm:p-6 lg:p-10">
+      <div className="mx-auto max-w-[1240px] overflow-hidden border border-ink/10 bg-canvas shadow-[0_30px_80px_rgba(93,51,65,0.16)]">
+        <nav className="flex items-center justify-between px-5 py-5 sm:px-9 lg:px-14">
+          <a href="#top" className="text-[13px] font-medium tracking-[-0.01em] text-muted transition-colors hover:text-ink">Portfolio · 2026</a>
+          <div className="hidden items-center gap-7 text-[15px] font-semibold sm:flex">
+            <a href="#about" className="hover:text-accent">About</a>
+            <a href="#work" className="hover:text-accent">Work</a>
+            <a href="#experience" className="hover:text-accent">Experience</a>
+          </div>
+          <a href="mailto:pnat614@gmail.com" className="rounded-full bg-ink px-4 py-2 text-[12px] font-bold text-canvas transition-colors hover:bg-accent">Email me</a>
+        </nav>
 
-            <div className="mt-6 min-w-0 md:mt-0 lg:mt-6">
-              <p className="font-label text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
-                Profile / Selected Work
-              </p>
-              <h1 className="mt-3 break-words font-display text-[clamp(43px,12vw,59px)] font-bold leading-[0.86] tracking-[-0.055em] md:text-[clamp(48px,7vw,59px)] lg:text-[clamp(45px,4.2vw,59px)]">
-                <span className="block text-ink">Poorna</span>
-                <span className="block whitespace-nowrap text-highlight">
-                  Natarajan
-                </span>
-              </h1>
-              <p className="font-label mt-5 text-[11px] font-semibold uppercase tracking-[0.08em] text-primary">
-                Senior AI Software Engineer
-              </p>
-              <p className="mt-4 max-w-[60ch] text-[14px] font-medium leading-[1.6] text-copy lg:max-w-[29ch]">
-                Over the past seven years, I’ve built data and AI systems for
-                public-health operations, government workflows, and legal search. That
-                work has shown me how much technical decisions can affect the people
-                who rely on these systems. I care about helping institutions use
-                technology responsibly, and I bring that perspective to every project I
-                take on.
-              </p>
-            </div>
+        <section id="top" className="px-5 pb-20 pt-16 sm:px-9 lg:px-14 lg:pb-28 lg:pt-24">
+          <div>
+            <h1 className="w-full text-[clamp(4.5rem,13vw,10.5rem)] font-medium leading-[0.78] tracking-[-0.09em]">Poorna Natarajan</h1>
+            <p className="mt-8 max-w-[980px] text-[clamp(2rem,5.5vw,4.8rem)] font-medium leading-[0.9] tracking-[-0.065em] text-accent">
+              Machine Learning Engineer
+            </p>
+          </div>
 
-            <div className="mt-5 flex gap-3 md:self-end lg:self-auto">
-              <SocialLink href="https://www.linkedin.com/in/poorna-natarajan/" label="Poorna Natarajan on LinkedIn">
-                <Linkedin size={16} strokeWidth={1.9} className="fill-current" />
-              </SocialLink>
-              <SocialLink href="https://github.com/poornanat1" label="Poorna Natarajan on GitHub">
-                <Github size={16} strokeWidth={1.9} className="fill-current" />
-              </SocialLink>
-              <SocialLink href="mailto:pnat614@gmail.com" label="Email Poorna Natarajan">
-                <Mail size={16} strokeWidth={1.9} />
-              </SocialLink>
+          <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,760px)_1fr] lg:gap-20">
+            <div>
+              <p className="text-[18px] font-medium leading-8 sm:text-[20px] sm:leading-9">Over the past seven years, I’ve built data and AI systems for public-health operations, government workflows, and legal search. That work has shown me how much technical decisions can affect the people who rely on these systems. I care about helping institutions use technology responsibly, and I bring that perspective to every project I take on.</p>
+              <a href="#work" className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-[12px] font-bold text-canvas transition-colors hover:bg-accent">See selected work <ArrowDown size={13} /></a>
             </div>
+            <div className="flex items-end gap-5 lg:justify-end"><ExternalLink href="https://github.com/poornanat1">GitHub</ExternalLink><ExternalLink href="https://www.linkedin.com/in/poorna-natarajan/">LinkedIn</ExternalLink></div>
+          </div>
+        </section>
 
-            <div className="profile-location mt-8 border-t border-border pt-4 md:self-end lg:mt-auto lg:self-auto">
-              <p className="text-[12px] font-semibold text-muted">
-                Currently based in New York, New York.
-              </p>
+        <section id="about" className="px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
+          <h2 className="text-[clamp(2rem,4vw,3.3rem)] font-medium tracking-[-0.055em]">Skills &amp; capabilities</h2>
+          <div className="mt-10 grid divide-y divide-border border-y border-border md:grid-cols-3 md:divide-x md:divide-y-0">
+            {[
+              ["01", "ML & AI systems", "RAG & hybrid retrieval|Agentic systems|DSPy / GEPA|SFT & QLoRA|LLM evaluation"],
+              ["02", "Software & product", "Python, C# & Go|TypeScript & Java|React interfaces|FastAPI & typed APIs|Human-in-the-loop design"],
+              ["03", "Data & infrastructure", "Kubernetes & Docker|Airflow & Kafka|PostgreSQL / pgvector|PySpark|Azure & AWS"],
+            ].map(([number, title, skills]) => (
+              <article key={number} className="min-h-[225px] py-8 md:px-7 md:first:pl-0 md:last:pr-0">
+                <p className="text-[38px] font-light tracking-[-0.05em] text-border">{number}</p>
+                <h3 className="mt-8 text-[14px] font-bold">{title}</h3>
+                <ul className="mt-4 grid gap-2 text-[13px] font-medium leading-6 text-copy">
+                  {skills.split("|").map((skill) => <li key={skill} className="flex gap-2 before:text-accent before:content-['•']">{skill}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="work" className="px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
+          <div className="flex items-end justify-between gap-6">
+            <h2 className="text-[clamp(2rem,4vw,3.3rem)] font-medium tracking-[-0.055em]">Selected Work</h2>
+            <p className="hidden text-[13px] font-medium text-muted sm:block" aria-live="polite">{activeProjectIndex + 1} of {projects.length}</p>
+          </div>
+
+          <div className="mt-8 scroll-mt-6 border-y border-border" aria-live="polite">
+            <div className="grid items-end gap-4 py-7 sm:grid-cols-[1fr_auto]">
+              <div><h3 className="text-[clamp(2.7rem,7vw,6rem)] font-medium leading-none tracking-[-0.07em]">{activeProject.name}</h3><p className="mt-3 text-[13px] font-medium leading-5 text-muted">{activeProject.eyebrow}</p></div>
+              <div className="text-[13px] font-semibold">{activeProject.year}</div>
             </div>
           </div>
-        </aside>
 
-        <div className="border-t border-border/75 px-5 py-8 sm:px-8 sm:py-10 md:px-12 lg:border-t-0 lg:px-10 lg:py-10 xl:px-12 xl:py-12 2xl:px-14">
-          <div className="grid min-w-0 grid-cols-1 gap-x-8 gap-y-12 xl:grid-cols-[minmax(0,1.16fr)_minmax(320px,0.84fr)]">
-            <section id="experience">
-              <SectionHeader number="01" title="Experience" />
-              <div className="relative space-y-8 before:absolute before:bottom-4 before:left-[3px] before:top-3 before:w-px before:bg-muted/65">
-                {experiences.map((experience) => (
-                  <article
-                    key={experience.company}
-                    className="relative grid grid-cols-[20px_minmax(0,1fr)] gap-x-4"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className={`relative z-10 mt-[7px] size-2 rounded-full ring-4 ring-canvas ${
-                        experience.current ? "bg-primary" : "bg-muted"
-                      }`}
-                    />
-                    <div className="min-w-0">
-                      <p
-                        className={`font-label text-[11px] font-medium tracking-[0.01em] ${
-                          experience.current ? "text-primary" : "text-muted"
-                        }`}
-                      >
-                        {experience.date}
-                      </p>
-                      <div className="mt-3">
-                        <CompanyLogo company={experience.company} />
-                        <h3 className="mt-2 break-words text-[15px] font-bold leading-5 text-ink">
-                          {experience.title}
-                        </h3>
-                      </div>
-                      <p className="mt-3 max-w-[60ch] text-[14px] font-medium leading-[1.55] text-body">
-                        {experience.description}
-                      </p>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <div className="space-y-10">
-              <section id="education">
-                <SectionHeader number="02" title="Education" />
-                <div className="space-y-6">
-                  <article>
-                    <div className="flex gap-4">
-                      <div className="flex size-9 shrink-0 items-center justify-center">
-                        <img
-                          src={georgiaTechLogo}
-                          alt="Georgia Institute of Technology logo"
-                          className="size-9 object-contain"
-                        />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="font-label text-[10px] font-semibold uppercase leading-4 tracking-[0.06em] text-muted">
-                          GEORGIA INSTITUTE OF TECHNOLOGY
-                        </p>
-                        <h3 className="mt-2 text-[15px] font-bold leading-5 text-ink">
-                          M.S. in Computer Science
-                        </h3>
-                        <div className="mt-4 border-t border-border pt-3">
-                          <p className="font-label text-[10px] font-semibold uppercase tracking-[0.1em] text-primary">
-                            Select coursework
-                          </p>
-                          <div className="mt-2 grid grid-cols-1 gap-y-1 text-[14px] font-medium leading-7 text-copy sm:grid-cols-2 sm:gap-x-7 sm:gap-y-0 lg:max-w-2xl xl:max-w-none">
-                            <div>
-                              Artificial Intelligence
-                              <br />
-                              Deep Learning
-                              <br />
-                              Information Security
-                              <br />
-                              Database Systems
-                            </div>
-                            <div>
-                              Machine Learning
-                              <br />
-                              Knowledge-Based AI
-                              <br />
-                              Human–Computer Interaction
-                              <br />
-                              Financial Modeling
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-
-                  <article className="flex gap-4">
-                    <div className="flex size-9 shrink-0 items-center justify-center">
-                      <img
-                        src={marylandLogo}
-                        alt="University of Maryland logo"
-                        className="size-9 object-contain"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-label text-[10px] font-semibold uppercase leading-4 tracking-[0.06em] text-muted">
-                        UNIVERSITY OF MARYLAND
-                      </p>
-                      <h3 className="mt-2 text-[15px] font-bold leading-5 text-ink">
-                        B.S. Bioengineering &amp; B.A. Economics
-                      </h3>
-                    </div>
-                  </article>
-                </div>
-              </section>
-
-              <section id="skills" className="border-t border-border pt-8">
-                <SectionHeader number="03" title="Skills" />
-                <div className="divide-y divide-border border-y border-border">
-                  {skillGroups.map((group, index) => (
-                    <div
-                      key={group.title}
-                      className="grid min-w-0 gap-3 py-4 sm:grid-cols-[145px_minmax(0,1fr)] sm:gap-5"
-                    >
-                      <div className="flex items-baseline gap-2">
-                        <span className="font-label text-[10px] font-semibold text-highlight">
-                          0{index + 1}
-                        </span>
-                        <h3 className="font-label text-[10px] font-semibold uppercase leading-4 tracking-[0.08em] text-primary">
-                          {group.title}
-                        </h3>
-                      </div>
-                      <ul
-                        className="flex flex-wrap gap-x-3 gap-y-1 text-[13px] font-semibold leading-6 text-ink"
-                        aria-label={group.title}
-                      >
-                        {group.items.map((skill) => (
-                          <li
-                            key={skill}
-                            className="before:mr-1.5 before:text-highlight before:content-['•']"
-                          >
-                            {skill}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </section>
+          <div key={activeProject.id} className="project-slide relative -mt-px grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:gap-10">
+            <a href={activeProject.href} target="_blank" rel="noreferrer" className="group block self-start overflow-hidden rounded-lg border border-ink/15 bg-[#e9f0e8]">
+              <img src={activeProject.image} alt={activeProject.imageAlt} className="aspect-[3024/1898] w-full object-cover transition-transform duration-500 group-hover:scale-[1.01]" />
+            </a>
+            <div>
+              <p className="pt-8 text-[24px] font-medium leading-8 tracking-[-0.035em]">{activeProject.summary}</p>
+              <p className="mt-5 text-[16px] font-medium leading-7 text-copy">{activeProject.contribution}</p>
+              <div className="mt-7 flex flex-wrap gap-5"><ExternalLink href={activeProject.href}>{activeProject.liveLabel}</ExternalLink><ExternalLink href={activeProject.github}>GitHub</ExternalLink></div>
+              <div className="mt-8 flex flex-wrap gap-2 text-[12px] font-medium text-muted">{activeProject.tags.map((tag) => <span key={tag} className="rounded-full border border-border px-3 py-2">{tag}</span>)}</div>
             </div>
           </div>
-        </div>
+
+          <div className="mt-8 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 border-t border-border pt-6">
+            <button type="button" onClick={() => showProject(activeProjectIndex - 1)} aria-label="Show previous project" className="flex size-11 items-center justify-center rounded-full border border-ink/40 transition-colors hover:border-ink hover:bg-ink hover:text-canvas"><ArrowLeft size={17} /></button>
+            <button type="button" onClick={() => showProject(nextProjectIndex)} className="group flex items-center justify-between gap-5 px-3 py-2 text-left text-accent transition-colors hover:text-ink">
+              <span><span className="block text-[12px] font-medium opacity-70">Next project</span><span className="mt-0.5 block text-[14px] font-bold">{projects[nextProjectIndex].name}</span></span>
+            </button>
+            <button type="button" onClick={() => showProject(activeProjectIndex + 1)} aria-label="Show next project" className="flex size-11 items-center justify-center rounded-full border border-ink/40 transition-colors hover:border-ink hover:bg-ink hover:text-canvas"><ArrowRight size={17} /></button>
+          </div>
+        </section>
+
+        <section id="experience" className="px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+            <div><p className="text-[clamp(2.5rem,5vw,4.6rem)] font-medium leading-none tracking-[-0.06em] text-accent">Experience</p><h2 className="mt-5 max-w-[24ch] text-[clamp(1.25rem,2.2vw,1.75rem)] font-medium leading-[1.15] tracking-[-0.035em]">From ideas to systems people use.</h2></div>
+            <div className="border-t border-border">
+              {experiences.map((experience, index) => (
+                <article key={experience.company} className="grid grid-cols-[26px_42px_1fr] items-start gap-3 border-b border-border py-5 sm:grid-cols-[34px_44px_1fr_auto] sm:gap-5">
+                  <span className="text-[12px] font-medium text-accent">0{index + 1}.</span>
+                  <CompanyLogo company={experience.company} showLabel={false} />
+                  <div><h3 className="text-[15px] font-bold">{experience.company} · {experience.title}</h3><p className="mt-2 max-w-[62ch] text-[15px] font-medium leading-7 text-copy">{experience.description}</p></div>
+                  <time className="col-start-3 text-[12px] font-medium text-muted sm:col-start-auto">{experience.date}</time>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <footer className="px-5 pb-7 pt-16 sm:px-9 lg:px-14 lg:pt-24">
+          <div className="grid gap-8 border-t border-border py-10 md:grid-cols-[1fr_auto] md:items-end">
+            <div className="flex items-start gap-6"><img src={portrait} alt="Portrait of Poorna Natarajan" className="size-24 shrink-0 rounded-full object-cover" /><div><p className="max-w-[570px] text-[clamp(1.9rem,4.2vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.06em]">Senior machine learning engineer and product builder.</p><a href="mailto:pnat614@gmail.com" className="mt-5 inline-flex items-center gap-2 text-[13px] font-bold underline decoration-accent underline-offset-4">pnat614@gmail.com <ArrowUpRight size={13} /></a></div></div>
+            <div className="flex gap-3">{[["Email", "mailto:pnat614@gmail.com", <span aria-hidden="true" className="text-[18px] leading-none">✉</span>], ["GitHub", "https://github.com/poornanat1", <Github size={14} className="fill-current" />], ["LinkedIn", "https://www.linkedin.com/in/poorna-natarajan/", <Linkedin size={14} className="fill-current" />]].map(([label, href, icon]) => <a key={String(label)} href={String(href)} target={String(href).startsWith("http") ? "_blank" : undefined} rel="noreferrer" aria-label={String(label)} className="flex size-9 items-center justify-center rounded-full border border-ink transition-colors hover:bg-ink hover:text-canvas">{icon}</a>)}</div>
+          </div>
+          <div className="flex flex-wrap justify-between gap-3 border-t border-border pt-5 text-[12px] font-medium text-muted"><span>© 2026 Poorna Natarajan</span><span>New York · Senior Machine Learning Engineer</span></div>
+        </footer>
       </div>
     </main>
   );
