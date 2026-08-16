@@ -6,70 +6,34 @@ export interface Experience {
   current?: boolean;
 }
 
-export interface SkillGroup {
-  title: string;
-  items: string[];
-}
-
 export const experiences: Experience[] = [
   {
     date: "2025 — NOW",
     company: "Latham & Watkins",
-    title: "Senior AI Software Engineer",
+    title: "Senior Machine Learning Engineer",
     current: true,
     description:
-      "Developing production AI platforms at one of the world's largest law firms.",
+      "Building production agentic document-intelligence and enterprise search systems using grounded generation, hybrid retrieval, contextual ranking, tiered model routing, and automated LLM evaluation.",
   },
   {
     date: "2024 — 2025",
     company: "Palantir Technologies",
     title: "Deployment Strategist",
     description:
-      "Built LLM-driven classification and retrieval applications for U.S. government clients, reducing manual classification and data-processing work.",
+      "Architected and launched LLM-driven classification, vector-retrieval, and real-time data applications for U.S. government users, turning long-running manual workflows into reliable production systems.",
   },
   {
     date: "2022 — 2024",
     company: "SMX",
-    title: "Senior AI Software Engineer",
+    title: "Machine Learning Engineer",
     description:
-      "Built distributed data pipelines and extraction systems supporting active-learning models in classified environments.",
+      "Developed scalable LLM extraction and translation services, plus distributed ingestion, validation, and monitoring pipelines supporting model training in secure environments.",
   },
   {
     date: "2019 — 2022",
     company: "Deloitte",
     title: "Senior Consultant",
     description:
-      "Delivered cloud-native analytics and ML applications for federal clients while leading a 200+ member Spark community of practice.",
-  },
-];
-
-export const skillGroups: SkillGroup[] = [
-  {
-    title: "Machine Learning & GenAI",
-    items: [
-      "RAG / retrieval",
-      "Vector search",
-      "Embeddings",
-      "Agentic systems",
-      "DSPy / GEPA",
-      "Fine-tuning",
-      "LLM evaluation",
-      "ONNX runtime",
-    ],
-  },
-  {
-    title: "Languages & Backend",
-    items: ["Python", "C#", "Go", "Java", "TypeScript", "PySpark"],
-  },
-  {
-    title: "Infrastructure & Platforms",
-    items: [
-      "Kubernetes / OpenShift",
-      "Docker",
-      "Airflow",
-      "Kafka",
-      "Postgres / pgvector",
-      "Azure / AWS",
-    ],
+      "Built cloud data products supporting federal public-health operations and co-led a 200+ member Spark engineering community focused on scalable analytics and machine learning.",
   },
 ];
