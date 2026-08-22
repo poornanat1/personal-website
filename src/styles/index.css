@@ -3,8 +3,10 @@
 
 @theme {
   --font-sans: "DM Sans", sans-serif;
-  --color-canvas: #f3efe7;
-  --color-shell: #e8c9c4;
+  --color-canvas: #ffffff;
+  --color-shell: #eee8ea;
+  --color-wash: #f8f4f5;
+  --color-project: #eef2ef;
   --color-ink: #1f2023;
   --color-copy: #55555a;
   --color-muted: #77747a;

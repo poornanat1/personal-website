@@ -1,10 +1,12 @@
 import carenavScreenshot from "@/assets/carenav.png";
 import auditionWithMeScreenshot from "@/assets/audition-with-me.png";
+import auditionRehearsalScreenshot from "@/assets/audition-rehearsal.png";
+import auditionVoiceSetupScreenshot from "@/assets/audition-voice-setup.png";
 import portrait from "@/assets/portrait.png";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { experiences } from "@/data/portfolio";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Github, Linkedin } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { ArrowDown, ArrowUpRight, Github, Linkedin } from "lucide-react";
+import type { ReactNode } from "react";
 
 const projects = [
   {
@@ -46,20 +48,12 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
 }
 
 export function App() {
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const activeProject = projects[activeProjectIndex];
-  const nextProjectIndex = (activeProjectIndex + 1) % projects.length;
-
-  const showProject = (index: number) => {
-    setActiveProjectIndex((index + projects.length) % projects.length);
-  };
-
   return (
     <main className="min-h-dvh bg-shell p-3 text-ink selection:bg-accent selection:text-white sm:p-6 lg:p-10">
       <div className="mx-auto max-w-[1240px] overflow-hidden border border-ink/10 bg-canvas shadow-[0_30px_80px_rgba(93,51,65,0.16)]">
-        <nav className="flex items-center justify-between px-5 py-5 sm:px-9 lg:px-14">
+        <nav className="flex flex-wrap items-center justify-between gap-x-5 gap-y-4 px-5 py-5 sm:flex-nowrap sm:px-9 lg:px-14">
           <a href="#top" className="text-[13px] font-medium tracking-[-0.01em] text-muted transition-colors hover:text-ink">Portfolio · 2026</a>
-          <div className="hidden items-center gap-7 text-[15px] font-semibold sm:flex">
+          <div className="order-3 flex w-full items-center justify-between border-t border-border pt-4 text-[13px] font-semibold sm:order-none sm:w-auto sm:justify-start sm:gap-7 sm:border-0 sm:pt-0 sm:text-[15px]">
             <a href="#about" className="hover:text-accent">About</a>
             <a href="#work" className="hover:text-accent">Work</a>
             <a href="#experience" className="hover:text-accent">Experience</a>
@@ -67,24 +61,25 @@ export function App() {
           <a href="mailto:pnat614@gmail.com" className="rounded-full bg-ink px-4 py-2 text-[12px] font-bold text-canvas transition-colors hover:bg-accent">Email me</a>
         </nav>
 
-        <section id="top" className="px-5 pb-20 pt-16 sm:px-9 lg:px-14 lg:pb-28 lg:pt-24">
+        <section id="top" className="px-5 pb-20 pt-14 sm:px-9 sm:pt-20 lg:px-14 lg:pb-28 lg:pt-24">
           <div>
-            <h1 className="w-full text-[clamp(4.5rem,13vw,10.5rem)] font-medium leading-[0.78] tracking-[-0.09em]">Poorna Natarajan</h1>
-            <p className="mt-8 max-w-[980px] text-[clamp(2rem,5.5vw,4.8rem)] font-medium leading-[0.9] tracking-[-0.065em] text-accent">
+            <p className="mb-6 text-[12px] font-bold uppercase tracking-[0.18em] text-muted">New York · ML systems · Responsible AI</p>
+            <h1 className="max-w-[1100px] text-[clamp(3.7rem,10.5vw,8.5rem)] font-medium leading-[0.86] tracking-[-0.075em]">Poorna Natarajan</h1>
+            <p className="mt-7 max-w-[980px] text-[clamp(2rem,5vw,4.25rem)] font-medium leading-[0.96] tracking-[-0.055em] text-accent">
               Machine Learning Engineer
             </p>
           </div>
 
           <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,760px)_1fr] lg:gap-20">
-            <div>
-              <p className="text-[18px] font-medium leading-8 sm:text-[20px] sm:leading-9">Over the past seven years, I’ve built data and AI systems for public-health operations, government workflows, and legal search. That work has shown me how much technical decisions can affect the people who rely on these systems. I care about helping institutions use technology responsibly, and I bring that perspective to every project I take on.</p>
+            <div className="max-w-[680px]">
+              <p className="text-[18px] font-medium leading-8 sm:text-[20px] sm:leading-9">For seven years, I’ve built data and AI systems for public health, government workflows, and legal search. I create reliable products for high-stakes environments—where technical decisions have real human consequences.</p>
               <a href="#work" className="mt-6 inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-[12px] font-bold text-canvas transition-colors hover:bg-accent">See selected work <ArrowDown size={13} /></a>
             </div>
             <div className="flex items-end gap-5 lg:justify-end"><ExternalLink href="https://github.com/poornanat1">GitHub</ExternalLink><ExternalLink href="https://www.linkedin.com/in/poorna-natarajan/">LinkedIn</ExternalLink></div>
           </div>
         </section>
 
-        <section id="about" className="px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
+        <section id="about" className="bg-wash px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
           <h2 className="text-[clamp(2rem,4vw,3.3rem)] font-medium tracking-[-0.055em]">Skills &amp; capabilities</h2>
           <div className="mt-10 grid divide-y divide-border border-y border-border md:grid-cols-3 md:divide-x md:divide-y-0">
             {[
@@ -104,40 +99,59 @@ export function App() {
         </section>
 
         <section id="work" className="px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
-          <div className="flex items-end justify-between gap-6">
+          <div className="flex items-end justify-between gap-6 border-b border-border pb-8">
             <h2 className="text-[clamp(2rem,4vw,3.3rem)] font-medium tracking-[-0.055em]">Selected Work</h2>
-            <p className="hidden text-[13px] font-medium text-muted sm:block" aria-live="polite">{activeProjectIndex + 1} of {projects.length}</p>
+            <p className="hidden max-w-[34ch] text-right text-[13px] font-medium leading-5 text-muted sm:block">End-to-end products spanning research, engineering, safety, and interaction design.</p>
           </div>
-
-          <div className="mt-8 scroll-mt-6 border-y border-border" aria-live="polite">
-            <div className="grid items-end gap-4 py-7 sm:grid-cols-[1fr_auto]">
-              <div><h3 className="text-[clamp(2.7rem,7vw,6rem)] font-medium leading-none tracking-[-0.07em]">{activeProject.name}</h3><p className="mt-3 text-[13px] font-medium leading-5 text-muted">{activeProject.eyebrow}</p></div>
-              <div className="text-[13px] font-semibold">{activeProject.year}</div>
-            </div>
-          </div>
-
-          <div key={activeProject.id} className="project-slide relative -mt-px grid gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:gap-10">
-            <a href={activeProject.href} target="_blank" rel="noreferrer" className="group block self-start overflow-hidden rounded-lg border border-ink/15 bg-[#e9f0e8]">
-              <img src={activeProject.image} alt={activeProject.imageAlt} className="aspect-[3024/1898] w-full object-cover transition-transform duration-500 group-hover:scale-[1.01]" />
-            </a>
-            <div>
-              <p className="pt-8 text-[24px] font-medium leading-8 tracking-[-0.035em]">{activeProject.summary}</p>
-              <p className="mt-5 text-[16px] font-medium leading-7 text-copy">{activeProject.contribution}</p>
-              <div className="mt-7 flex flex-wrap gap-5"><ExternalLink href={activeProject.href}>{activeProject.liveLabel}</ExternalLink><ExternalLink href={activeProject.github}>GitHub</ExternalLink></div>
-              <div className="mt-8 flex flex-wrap gap-2 text-[12px] font-medium text-muted">{activeProject.tags.map((tag) => <span key={tag} className="rounded-full border border-border px-3 py-2">{tag}</span>)}</div>
-            </div>
-          </div>
-
-          <div className="mt-8 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 border-t border-border pt-6">
-            <button type="button" onClick={() => showProject(activeProjectIndex - 1)} aria-label="Show previous project" className="flex size-11 items-center justify-center rounded-full border border-ink/40 transition-colors hover:border-ink hover:bg-ink hover:text-canvas"><ArrowLeft size={17} /></button>
-            <button type="button" onClick={() => showProject(nextProjectIndex)} className="group flex items-center justify-between gap-5 px-3 py-2 text-left text-accent transition-colors hover:text-ink">
-              <span><span className="block text-[12px] font-medium opacity-70">Next project</span><span className="mt-0.5 block text-[14px] font-bold">{projects[nextProjectIndex].name}</span></span>
-            </button>
-            <button type="button" onClick={() => showProject(activeProjectIndex + 1)} aria-label="Show next project" className="flex size-11 items-center justify-center rounded-full border border-ink/40 transition-colors hover:border-ink hover:bg-ink hover:text-canvas"><ArrowRight size={17} /></button>
+          <div>
+            {projects.map((project, index) => (
+              <article key={project.id} className="grid gap-10 border-b border-border py-12 lg:grid-cols-[minmax(280px,0.68fr)_minmax(0,1.32fr)] lg:gap-14 lg:py-20">
+                <div className="flex flex-col justify-between lg:sticky lg:top-8 lg:self-start">
+                  <div>
+                    <div className="flex items-start justify-between gap-4"><span className="text-[12px] font-bold text-accent">0{index + 1}</span><span className="text-[12px] font-semibold text-muted">{project.year}</span></div>
+                    <h3 className="mt-6 text-[clamp(2.7rem,4.8vw,4.8rem)] font-medium leading-[0.92] tracking-[-0.065em]">{project.name}</h3>
+                    <p className="mt-4 max-w-[54ch] text-[13px] font-medium leading-5 text-muted">{project.eyebrow}</p>
+                    <p className="mt-9 max-w-[28ch] text-[22px] font-medium leading-8 tracking-[-0.035em]">{project.summary}</p>
+                    <p className="mt-6 max-w-[48ch] text-[15px] font-medium leading-7 text-copy">{project.contribution}</p>
+                  </div>
+                  <div>
+                    <div className="mt-7 flex flex-wrap gap-5"><ExternalLink href={project.href}>{project.liveLabel}</ExternalLink><ExternalLink href={project.github}>GitHub</ExternalLink></div>
+                    <div className="mt-8 flex flex-wrap gap-2 text-[12px] font-medium text-muted">{project.tags.map((tag) => <span key={tag} className="rounded-full border border-border px-3 py-2">{tag}</span>)}</div>
+                  </div>
+                </div>
+                <div className="grid content-start gap-5">
+                  <figure>
+                    <a href={project.href} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-ink/10 bg-project shadow-[0_18px_45px_rgba(42,30,35,0.10)]">
+                      <img src={project.image} alt={project.imageAlt} className="aspect-[3024/1898] w-full object-cover transition-transform duration-500 group-hover:scale-[1.015]" />
+                    </a>
+                    <figcaption className="mt-3 flex items-start justify-between gap-4 text-[12px] font-semibold leading-5 text-muted">
+                      <span>{project.id === "audition-with-me" ? "From uploaded sides to a ready-to-rehearse scene" : "Grounded answers with visible sources and member context"}</span><span className="shrink-0 text-accent">View live ↗</span>
+                    </figcaption>
+                  </figure>
+                  {project.id === "audition-with-me" && (
+                  <div className="grid gap-5 md:grid-cols-2">
+                    {[
+                      [auditionVoiceSetupScreenshot, "Character-aware voice casting and preview", "Voice setup screen with character tabs, voice filters, preview controls, and rehearsal launch"],
+                      [auditionRehearsalScreenshot, "Responsive rehearsal with cue detection and line controls", "Rehearsal screen with active dialogue, line help, playback controls, and voice-speed settings"],
+                    ].map(([image, caption, alt]) => (
+                      <figure key={caption}>
+                        <a href={image} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-ink/10 bg-[#0d1a2a] shadow-[0_16px_36px_rgba(42,30,35,0.09)]">
+                          <img src={image} alt={alt} className="aspect-[1.72/1] w-full object-cover transition-transform duration-500 group-hover:scale-[1.012]" />
+                        </a>
+                        <figcaption className="mt-3 flex items-start justify-between gap-4 text-[12px] font-semibold leading-5 text-muted">
+                          <span>{caption}</span><span className="shrink-0 text-accent">Open ↗</span>
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        <section id="experience" className="px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
+        <section id="experience" className="bg-wash px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
             <div><p className="text-[clamp(2.5rem,5vw,4.6rem)] font-medium leading-none tracking-[-0.06em] text-accent">Experience</p><h2 className="mt-5 max-w-[24ch] text-[clamp(1.25rem,2.2vw,1.75rem)] font-medium leading-[1.15] tracking-[-0.035em]">From ideas to systems people use.</h2></div>
             <div className="border-t border-border">
