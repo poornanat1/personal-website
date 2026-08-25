@@ -5,7 +5,7 @@ import auditionVoiceSetupScreenshot from "@/assets/audition-voice-setup.png";
 import portrait from "@/assets/portrait.png";
 import { CompanyLogo } from "@/components/CompanyLogo";
 import { experiences } from "@/data/portfolio";
-import { ArrowDown, ArrowUpRight, Github, Linkedin } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 
 const projects = [
@@ -57,7 +57,7 @@ export function App() {
             <a href="#work" className="hover:text-accent">Work</a>
             <a href="#experience" className="hover:text-accent">Experience</a>
           </div>
-          <a href="mailto:pnat614@gmail.com" className="ml-auto rounded-full bg-ink px-4 py-2 text-[12px] font-bold text-canvas transition-colors hover:bg-accent">Email me</a>
+          <a href="mailto:pnat614@gmail.com" className="ml-auto rounded-full bg-ink px-4 py-2 text-[12px] font-bold text-canvas transition-colors hover:bg-accent">Say hello</a>
         </nav>
 
         <section id="top" className="relative px-5 pb-20 pt-14 sm:px-9 sm:pt-20 lg:px-14 lg:pb-28 lg:pt-24">
@@ -70,8 +70,11 @@ export function App() {
             </p>
           </div>
 
-          <div className="mt-14 max-w-[680px]">
-            <p className="text-[18px] font-medium leading-8 sm:text-[20px] sm:leading-9">For seven years, I’ve built data and AI systems for public health, government workflows, and legal search. I create reliable products for high-stakes environments—where technical decisions have real human consequences.</p>
+          <div className="mt-14">
+            <div className="flex items-start gap-5 sm:items-center sm:gap-7">
+              <img src={portrait} alt="" className="size-16 shrink-0 rounded-full border-2 border-canvas object-cover shadow-[0_8px_24px_rgba(93,51,65,0.18)] sm:size-20" />
+              <p className="text-[18px] font-medium leading-8 sm:text-[20px] sm:leading-9">I’m a Senior Machine Learning Engineer at Latham &amp; Watkins, where I build production AI systems for contract intelligence and search. Previously, I built data, ML, and real-time sensor systems at Palantir, SMX, and Deloitte. My background spans computer science, bioengineering, and economics.</p>
+            </div>
             <div className="mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
               <a href="#work" className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-[12px] font-bold text-canvas transition-colors hover:bg-accent">See selected work <ArrowDown size={13} /></a>
               <ExternalLink href="https://github.com/poornanat1">GitHub</ExternalLink>
@@ -172,12 +175,8 @@ export function App() {
           </div>
         </section>
 
-        <footer className="px-5 pb-7 pt-16 sm:px-9 lg:px-14 lg:pt-24">
-          <div className="grid gap-8 border-t border-border py-10 md:grid-cols-[1fr_auto] md:items-end">
-            <div className="flex items-start gap-6"><img src={portrait} alt="Portrait of Poorna Natarajan" className="size-24 shrink-0 rounded-full object-cover" /><div><p className="max-w-[570px] text-[clamp(1.9rem,4.2vw,3.6rem)] font-medium leading-[1.02] tracking-[-0.06em]">Senior machine learning engineer and product builder.</p><a href="mailto:pnat614@gmail.com" className="mt-6 inline-flex items-center gap-2 text-[17px] font-bold underline decoration-accent decoration-2 underline-offset-[6px] transition-colors hover:text-accent sm:text-[19px]">pnat614@gmail.com <ArrowUpRight size={17} /></a></div></div>
-            <div className="flex gap-3">{[["Email", "mailto:pnat614@gmail.com", <span aria-hidden="true" className="text-[21px] leading-none">✉</span>], ["GitHub", "https://github.com/poornanat1", <Github size={17} className="fill-current" />], ["LinkedIn", "https://www.linkedin.com/in/poorna-natarajan/", <Linkedin size={17} className="fill-current" />]].map(([label, href, icon]) => <a key={String(label)} href={String(href)} target={String(href).startsWith("http") ? "_blank" : undefined} rel="noreferrer" aria-label={String(label)} className="flex size-11 items-center justify-center rounded-full border border-ink transition-colors hover:bg-ink hover:text-canvas">{icon}</a>)}</div>
-          </div>
-          <div className="flex flex-wrap justify-between gap-3 border-t border-border pt-5 text-[12px] font-medium text-muted"><span>© 2026 Poorna Natarajan</span><span>New York · Senior Machine Learning Engineer</span></div>
+        <footer className="px-5 py-7 sm:px-9 lg:px-14">
+          <div className="border-t border-border pt-5 text-[12px] font-medium text-muted">© 2026 Poorna Natarajan</div>
         </footer>
       </div>
     </main>
