@@ -49,11 +49,10 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
 
 export function App() {
   return (
-    <main className="min-h-dvh bg-shell p-2 text-ink selection:bg-accent selection:text-white sm:p-5 lg:p-8">
-      <div className="mx-auto max-w-[1320px] overflow-hidden rounded-[18px] border border-ink/10 bg-canvas shadow-[0_24px_80px_rgba(0,0,0,0.08)] sm:rounded-[28px]">
-        <nav className="relative flex flex-wrap items-center justify-between gap-x-5 gap-y-4 px-5 py-5 sm:flex-nowrap sm:px-9 lg:px-14 lg:py-7">
-          <a href="#top" aria-label="Back to top" className="text-[15px] font-bold tracking-[-0.04em]">PN<span className="text-accent">.</span></a>
-          <div className="order-3 flex w-full items-center justify-between rounded-full border border-ink/10 bg-wash px-2 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] sm:absolute sm:left-1/2 sm:top-5 sm:order-none sm:w-auto sm:-translate-x-1/2 sm:gap-1 sm:py-1.5 lg:top-7">
+    <main className="min-h-dvh bg-canvas text-ink selection:bg-accent selection:text-white">
+      <div className="mx-auto max-w-[1320px] overflow-hidden bg-canvas">
+        <nav className="relative flex flex-wrap items-center justify-between gap-x-5 gap-y-4 px-5 py-5 sm:flex-nowrap sm:px-9 lg:px-14 lg:py-5">
+          <div className="order-3 flex w-full items-center justify-between rounded-full border border-ink/10 bg-[#f1f1f1] px-2 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] sm:absolute sm:left-1/2 sm:top-5 sm:order-none sm:w-auto sm:-translate-x-1/2 sm:gap-1 sm:py-1.5 lg:top-5">
             <a href="#about" className="rounded-full px-3 py-2 transition-colors hover:bg-canvas hover:text-accent">About</a>
             <a href="#work" className="rounded-full px-3 py-2 transition-colors hover:bg-canvas hover:text-accent">Work</a>
             <a href="#experience" className="rounded-full px-3 py-2 transition-colors hover:bg-canvas hover:text-accent">Experience</a>
@@ -61,17 +60,15 @@ export function App() {
           <a href="mailto:pnat614@gmail.com" className="ml-auto inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.1em] text-canvas transition-colors hover:bg-accent">Say hello <ArrowUpRight size={12} /></a>
         </nav>
 
-        <section id="top" className="relative px-5 pb-20 pt-16 sm:px-9 sm:pt-24 lg:px-14 lg:pb-28 lg:pt-32">
-          <div className="mb-9 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-muted"><span className="size-2 rounded-full bg-accent" />Portfolio · New York · 2026</div>
+        <section id="top" className="relative px-5 pb-16 pt-14 sm:px-9 sm:pt-20 lg:flex lg:min-h-[calc(100svh-80px)] lg:flex-col lg:justify-between lg:px-14 lg:pb-10 lg:pt-8">
           <div className="max-w-[1160px]">
-            <h1 className="text-[clamp(4rem,11vw,9.5rem)] font-medium leading-[0.82] tracking-[-0.085em]">Poorna<br />Natarajan<span className="text-accent">.</span></h1>
-            <div className="mt-9 flex items-center gap-4 sm:mt-12"><span className="h-px w-10 bg-accent sm:w-20" /><p className="text-[clamp(1.4rem,3.1vw,2.7rem)] font-medium leading-none tracking-[-0.045em]">Senior Machine Learning Engineer</p></div>
+            <h1 className="hero-title font-medium leading-[0.82] tracking-[-0.085em]">Poorna<br />Natarajan<span className="text-accent">.</span></h1>
+            <div className="mt-7 flex items-center gap-4 sm:mt-9"><span className="h-px w-10 bg-accent sm:w-20" /><p className="hero-role font-medium leading-none tracking-[-0.045em]">Senior Machine Learning Engineer</p></div>
           </div>
 
-          <div className="mt-16 border-t border-ink/15 pt-8 lg:mt-24 lg:grid lg:grid-cols-[0.42fr_1.58fr] lg:gap-16">
-            <div className="mb-7 flex items-center gap-4 lg:mb-0 lg:items-start">
-              <img src={portrait} alt="Portrait of Poorna Natarajan" className="size-16 shrink-0 rounded-full border border-ink/10 object-cover grayscale sm:size-20" />
-              <p className="text-[10px] font-bold uppercase leading-5 tracking-[0.14em] text-muted">Engineer<br />Builder<br />Product thinker</p>
+          <div className="mt-14 border-t border-ink/15 pt-7 lg:mt-8 lg:grid lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-8 lg:pt-6">
+            <div className="mb-8 lg:mb-0">
+              <img src={portrait} alt="Portrait of Poorna Natarajan" className="size-28 rounded-full border border-ink/10 object-cover shadow-[0_14px_36px_rgba(0,0,0,0.12)] sm:size-36 lg:size-44" />
             </div>
             <div>
               <p className="max-w-[900px] text-[19px] font-medium leading-[1.55] tracking-[-0.025em] sm:text-[24px] sm:leading-[1.5]">I build production AI systems for contract intelligence and search at Latham &amp; Watkins. Previously, I built data, ML, and real-time sensor systems at Palantir, SMX, and Deloitte. My background spans computer science, bioengineering, and economics.</p>
@@ -107,7 +104,7 @@ export function App() {
           <div className="flex items-end justify-between gap-6 border-b border-border pb-8">
             <div>
               <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-accent">02 / Selected work</p>
-              <h2 className="text-[clamp(2.4rem,5.2vw,4.8rem)] font-medium leading-none tracking-[-0.065em]">Built end to end.</h2>
+              <h2 className="text-[clamp(2.4rem,5.2vw,4.8rem)] font-medium leading-none tracking-[-0.065em]">Personal Projects</h2>
             </div>
             <p className="hidden max-w-[34ch] text-right text-[13px] font-medium leading-5 text-muted sm:block">End-to-end products spanning research, engineering, safety, and interaction design.</p>
           </div>
@@ -161,7 +158,7 @@ export function App() {
 
         <section id="experience" className="relative border-t border-ink/10 bg-wash px-5 py-16 sm:px-9 lg:px-14 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-            <div className="lg:sticky lg:top-10 lg:self-start"><p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-accent">03 / Experience</p><h2 className="text-[clamp(2.5rem,5vw,4.6rem)] font-medium leading-[0.95] tracking-[-0.06em]">From ideas to systems people use.</h2><p className="mt-6 text-[12px] font-bold uppercase tracking-[0.12em] text-muted">2019 — Now</p></div>
+            <div className="lg:sticky lg:top-10 lg:self-start"><p className="mb-4 text-[10px] font-bold uppercase tracking-[0.22em] text-accent">03 / Experience</p><h2 className="text-[clamp(2.5rem,5vw,4.6rem)] font-medium leading-[0.95] tracking-[-0.06em]">Work Experience</h2><p className="mt-6 text-[12px] font-bold uppercase tracking-[0.12em] text-muted">2019 — Now</p></div>
             <div className="border-t border-border">
               {experiences.map((experience, index) => (
                 <article key={experience.company} className="grid grid-cols-[26px_42px_1fr] items-start gap-3 border-b border-border py-5 sm:grid-cols-[34px_44px_1fr_auto] sm:gap-5">

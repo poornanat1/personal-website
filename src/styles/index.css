@@ -4,8 +4,8 @@
 @theme {
   --font-sans: "DM Sans", sans-serif;
   --color-canvas: #ffffff;
-  --color-shell: #f1f1f1;
-  --color-wash: #f6f6f6;
+  --color-shell: #ffffff;
+  --color-wash: #ffffff;
   --color-project: #ececec;
   --color-ink: #0b0b0c;
   --color-copy: #3f3f43;
@@ -64,6 +64,24 @@
 
 .project-slide {
   animation: project-slide-in 320ms ease-out both;
+}
+
+.hero-title {
+  font-size: clamp(3.7rem, min(10vw, 15vh), 8.5rem);
+}
+
+.hero-role {
+  font-size: clamp(1.35rem, min(3vw, 5vh), 2.5rem);
+}
+
+@media (min-width: 1024px) and (max-height: 760px) {
+  .hero-title {
+    font-size: clamp(3.7rem, min(9vw, 13vh), 7rem);
+  }
+
+  .hero-role {
+    font-size: clamp(1.25rem, 3.5vh, 2rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
