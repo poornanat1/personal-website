@@ -4,14 +4,14 @@
 @theme {
   --font-sans: "DM Sans", sans-serif;
   --color-canvas: #ffffff;
-  --color-shell: #eee8ea;
-  --color-wash: #f8f4f5;
-  --color-project: #eef2ef;
-  --color-ink: #1f2023;
-  --color-copy: #55555a;
-  --color-muted: #77747a;
-  --color-border: #cdc6bc;
-  --color-accent: #a64d73;
+  --color-shell: #f1f1f1;
+  --color-wash: #f6f6f6;
+  --color-project: #ececec;
+  --color-ink: #0b0b0c;
+  --color-copy: #3f3f43;
+  --color-muted: #707074;
+  --color-border: #d5d5d5;
+  --color-accent: #92244f;
 }
 
 @layer base {
@@ -33,6 +33,10 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background: var(--color-shell);
+  }
+
+  a {
+    text-decoration-thickness: from-font;
   }
 
   :focus-visible {
