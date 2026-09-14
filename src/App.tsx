@@ -71,7 +71,7 @@ export function App() {
               <img src={portrait} alt="Portrait of Poorna Natarajan" className="size-28 rounded-full border border-ink/10 object-cover shadow-[0_14px_36px_rgba(0,0,0,0.12)] sm:size-36 lg:size-44" />
             </div>
             <div>
-              <p className="max-w-[900px] text-[19px] font-medium leading-[1.55] tracking-[-0.025em] sm:text-[24px] sm:leading-[1.5]">I build production AI systems for contract intelligence and search at Latham &amp; Watkins. Previously, I built data, ML, and real-time sensor systems at Palantir, SMX, and Deloitte. My background spans computer science, bioengineering, and economics.</p>
+              <p className="max-w-[900px] text-[19px] font-medium leading-[1.55] tracking-[-0.025em] sm:text-[24px] sm:leading-[1.5]">I build AI systems for contract intelligence and search at Latham &amp; Watkins, and my background spans computer science, bioengineering, and economics through work at Palantir, SMX, and Deloitte.</p>
               <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
                 <a href="#work" className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-canvas transition-colors hover:bg-accent">Selected work <ArrowDown size={13} /></a>
                 <ExternalLink href="https://github.com/poornanat1">GitHub</ExternalLink>
